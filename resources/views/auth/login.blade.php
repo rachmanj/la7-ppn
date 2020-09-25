@@ -29,7 +29,7 @@
 		 	<div class="text-center">
 		 		<img src="{{ asset('assets/images/logo-icon.png') }}">
 		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">ARK - GS</div>
+		  <div class="card-title text-uppercase text-center py-3">ARK - Faktur PPN</div>
             <form action="{{ route('login') }}" method="POST">
                 @csrf
 			  <div class="form-group">

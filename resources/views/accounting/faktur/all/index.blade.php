@@ -4,15 +4,13 @@
 <div class="row">
     <div class="col-lg-12">
       <div> <!--Please remove the height before using this page  style="height:600px"-->
-        <h3>Progres MR</h3>
-        <p>Query Name: Progres MR</p>
-        {{-- <p>Record date: {{ date('d-m-Y H:i:s', strtotime($latest_record->created_at)) }} </p> --}}
+        <h4>List of Faktur</h4>
 
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                @role('superadmin', 'admin')
+                @role(['superadmin', 'admin'])
                   <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importExcel">
                       <i class="fa fa-upload"></i> Upload Excel
                   </button>
@@ -20,17 +18,22 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                <table id="datatable-progresmr" class="table table-bordered">
-                  <thead>
-                      <tr>
-                          <th>#</th>
-                          <th>WO No</th>
-                          <th>WO Date</th>
-                          <th>Project</th>
-                      </tr>
-                  </thead>
-              </table>
-              </div>
+                  <table id="datatable-faktur" class="table table-bordered">
+                    <thead class="thead-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Doc. No.</th>
+                            <th>Vendor</th>
+                            <th>Faktur No</th>
+                            <th>Faktur Date</th>
+                            <th>Amount</th>
+                            <th>CreateD</th>
+                            <th>PostD</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -52,7 +55,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form method="post" action="{{ route('progresmrs.import_excel') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('accounting.fakturall.import_excel') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <label>Pilih file excel</label>
                     <div class="form-group">
@@ -89,36 +92,23 @@
   <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}"></script>
   <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}"></script>
 
-    {{-- <script>
-     $(document).ready(function() {
-      //Default data table
-       $('#default-datatable').DataTable();
-
-
-       var table = $('#datatable-powitheta').DataTable( {
-        lengthChange: false,
-        buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ]
-      } );
- 
-     table.buttons().container()
-        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
-      
-      } );
-
-    </script> --}}
-
 <script>
     $(function() {
         
-    $('#datatable-progresmr').DataTable({
+    $('#datatable-faktur').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('progresmrs.data') }}',
+            ajax: '{{ route('accounting.fakturall.data') }}',
             columns: [
                 {data: 'DT_RowIndex', orderable: false, searchable: false},
-                {data: 'wo_no'},
-                {data: 'wo_date'},
-                {data: 'project_code'},
+                {data: 'document_no'},
+                {data: 'vendor_code'},
+                {data: 'faktur_no'},
+                {data: 'faktur_date'},
+                {data: 'amount'},
+                {data: 'creation_date'},
+                {data: 'posting_date'},
+                {data: 'action'},
             ]
         });
     });

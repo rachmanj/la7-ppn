@@ -19,12 +19,13 @@
      </li>   
       <li>
         <a href="javaScript:void();" class="waves-effect">
-          <i class="icon-fire"></i> <span>Tables Upload</span>
+          <i class="icon-fire"></i> <span>Faktur PPN</span>
           <i class="fa fa-angle-left float-right"></i>
         </a>
        <ul class="sidebar-submenu">
-          <li><a href="#"><i class="fa fa-circle-o"></i> Faktur PPN</a></li>
-          <li><a href="icons-flags.html"><i class="fa fa-circle-o"></i> Flag Icons</a></li>
+          <li><a href="{{ route('accounting.fakturall.index') }}"><i class="fa fa-circle-o"></i> All Faktur</a></li>
+          <li><a href="{{ route('accounting.fakturnoreceive.index') }}"><i class="fa fa-circle-o"></i> Receive Faktur</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Duplicate Entries</a></li>
        </ul>
       </li>
      @role(['superadmin', 'admin'])
