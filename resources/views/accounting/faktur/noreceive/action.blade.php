@@ -1,1 +1,1 @@
-<a href="{{ route('accounting.fakturnoreceive.edit', $model->id) }}" class="btn btn-md btn-outline-warning">update</a>
+<a href="{{ route('accounting.fakturnoreceive.edit', $model->id) }}" class="btn btn-xs btn-warning">update</a>

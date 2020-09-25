@@ -28,11 +28,11 @@ Route::name('accounting.')
         Route::get('fakturall/data', 'DataController@fakturall')->name('fakturall.data');
         Route::get('fakturnoreceive/data', 'DataController@fakturnoreceive')->name('fakturnoreceive.data');
         Route::get('fakturduplicate/data', 'DataController@fakturduplicate')->name('fakturduplicate.data');
-        Route::get('fakturbelumsap/data', 'DataController@fakturbelumsap')->name('fakturbelumsap.data');
+        // Route::get('fakturbelumsap/data', 'DataController@fakturbelumsap')->name('fakturbelumsap.data');
 
         Route::resource('fakturall', 'FakturallController');
         Route::resource('fakturnoreceive', 'FakturnoreceiveController');
-        Route::resource('fakturbelumsap', 'FakturbelumsapController');
+        // Route::resource('fakturbelumsap', 'FakturbelumsapController');
         Route::resource('fakturduplicate', 'FakturduplicateController');
 
         Route::post('/fakturall/import_excel', 'FakturallController@import_excel')->name('fakturall.import_excel');

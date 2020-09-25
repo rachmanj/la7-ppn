@@ -1,24 +1,23 @@
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <title>ARK - GS | Dashboard</title>
-    <!--favicon-->
-    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
-    <!-- simplebar CSS-->
-    <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
-    <!-- Bootstrap core CSS-->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
-    <!-- animate CSS-->
-    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
-    <!-- Icons CSS-->
-    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
-    <!-- Sidebar CSS-->
-    <link href="{{ asset('assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
-    <!-- Custom Style-->
-    <link href="{{ asset('assets/css/app-style.css') }}" rel="stylesheet"/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ARK | Faktur PPN</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="{{ asset('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ asset('assets/bower_components/font-awesome/css/font-awesome.min.css') }}">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="{{ asset('assets/bower_components/Ionicons/css/ionicons.min.css') }}">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="{{ asset('assets/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="{{ asset('assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{{ asset('assets/dist/css/AdminLTE.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/dist/css/skins/_all-skins.min.css') }}">
     
     @stack('styles')
 </head>

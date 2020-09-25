@@ -1,1 +1,1 @@
-<a href="{{ route('accounting.fakturall.show', $model->id) }}" class="btn btn-sm btn-outline-success m-1">view</a>
+<a href="{{ route('accounting.fakturall.show', $model->id) }}" class="btn btn-sm btn-success">view</a>

@@ -8,15 +8,15 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header">
+            <div class="box">
+              <div class="box-header">
                 @role(['superadmin', 'admin'])
-                  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#importExcel">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel">
                       <i class="fa fa-upload"></i> Upload Excel
                   </button>
-                  @endrole
+                @endrole
               </div>
-              <div class="card-body">
+              <div class="box-body">
                 <div class="table-responsive">
                   <table id="datatable-faktur" class="table table-bordered">
                     <thead class="thead-primary">
@@ -74,23 +74,14 @@
 @endsection
 
 @push('styles')
-    <!--Data Tables -->
-  <link href="{{ asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endpush
 
-@push('script')
-    <!--Data Tables js-->
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jszip.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/pdfmake.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/vfs_fonts.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}"></script>
-  <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}"></script>
+@push('scripts')
+<!-- DataTables -->
+<script src="{{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 
 <script>
     $(function() {

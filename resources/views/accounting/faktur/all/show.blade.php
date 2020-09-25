@@ -4,16 +4,16 @@
 <div class="row">
     <div class="col-lg-12">
       <div>
-        <h4>Faktur Detail</h4>
-
+        
         <div class="col-lg-10">
-            <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('accounting.fakturall.index') }}" type="button" class="btn btn-outline-primary pull-right">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h4>Faktur Detail</h4>
+                    <a href="{{ route('accounting.fakturall.index') }}" type="button" class="btn btn-primary pull-right">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
-              <div class="card-body">
+              <div class="panel-body">
                 <div class="table-responsive">
                  <table class="table">
                     <tr>

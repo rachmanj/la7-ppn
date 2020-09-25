@@ -1,12 +1,9 @@
-<!--Start footer-->
-<footer class="footer">
-    <div class="row">
-        <div class="col-md-6 text-left">
-            <strong>Copyright &copy; {{ date('Y') }} <a href="http://arka.co.id">ARKA</a>.</strong> All rights reserved.
-          </div>
-          <div class="col-md-6 text-right">
-            Dev. By<b> IT Dept.</b>
-        </div>
-    </div>
-  </footer>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Dev. by: IT Dept.</b>
+  </div>
+  <strong>Copyright &copy; {{ date('Y') }} <a href="www.arka.co.id">ARKA</a>.</strong> All rights
+  reserved.
+</footer>
   <!--End footer-->
