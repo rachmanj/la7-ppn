@@ -1,0 +1,1 @@
+<a href="{{ route('accounting.fakturs.show', $model->id) }}" class="btn btn-xs btn-success"><i class="fa fa-search"></i></a>

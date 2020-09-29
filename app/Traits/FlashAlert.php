@@ -54,4 +54,12 @@ trait FlashAlert
             'message' => 'you don’t have permission to access!'
         ];
     }
+
+    public function alertImport()
+    {
+        return [
+            'type' => 'success',
+            'message' => 'Data successfuly imported!'
+        ];
+    }
 }

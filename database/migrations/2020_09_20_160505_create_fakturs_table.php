@@ -15,7 +15,7 @@ class CreateFaktursTable extends Migration
     {
         Schema::create('fakturs', function (Blueprint $table) {
             $table->id();
-            $table->string('sap_document');
+            $table->string('document_no')->nullable();
             $table->string('vendor_code')->nullable();
             $table->string('faktur_no')->nullable();
             $table->date('faktur_date')->nullable();

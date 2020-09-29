@@ -16,7 +16,7 @@
           <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
         </ul>
       </li>
-      <li class="treeview">
+      <li class="treeview {{ request()->is('accounting/fakturs') || request()->is('accounting/fakturs/*') ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-files-o"></i>
           <span>Faktur PPN</span>
@@ -25,10 +25,18 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ route('accounting.fakturall.index') }}"><i class="fa fa-circle-o"></i> All Faktur</a></li>
-          <li><a href="{{ route('accounting.fakturnoreceive.index') }}"><i class="fa fa-circle-o"></i> Receive Faktur</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Duplicate Entries</a></li>
+          <li class="{{ request()->is('accounting/fakturs') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.index') }}"><i class="fa fa-circle-o"></i> All Faktur</a></li>
+          <li class="{{ request()->is('accounting/fakturs/receive') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.receive_index') }}"><i class="fa fa-circle-o"></i> Receive Faktur</a></li>
+          <li class="{{ request()->is('accounting/fakturs/belumsap') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.belumsap_index') }}"><i class="fa fa-circle-o"></i> Faktur Belum SAP</a></li>
+          <li class="{{ request()->is('accounting/fakturs/duplicates') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.duplicates_index') }}"><i class="fa fa-circle-o"></i> Duplicate Entries</a></li>
         </ul>
+      </li>
+      <li class="header">GENERAL</li>
+      <li class="{{ request()->is('general/suppliers') || request()->is('general/suppliers/*') ? 'active' : '' }}">
+        <a href="{{ route('general.suppliers.index') }}">
+          <i class="fa fa-files-o"></i>
+          <span>Suppliers</span>
+        </a>
       </li>
       <li class="header">ADMIN</li>
     </ul>

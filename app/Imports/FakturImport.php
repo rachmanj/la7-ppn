@@ -16,7 +16,7 @@ class FakturImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Faktur([
-            'sap_document'   => $row['sap_document'],
+            'document_no'   => $row['document_no'],
             'vendor_code'   => $row['vendor_code'],
             'faktur_no'     => $row['faktur_no'],
             'faktur_date'   => $row['faktur_date'],
@@ -27,7 +27,7 @@ class FakturImport implements ToModel, WithHeadingRow
             'doc_type'      => $row['doc_type'],
             'remark'        => $row['remark'],
             'sap_user'      => $row['sap_user'],
-            'created_by'    => auth()->user()->name,
+            'created_by'    => 'excel import',
         ]);
     }
 }

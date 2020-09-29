@@ -1,0 +1,1 @@
+<a href="{{ route('general.suppliers.edit', $model->id) }}" class="btn btn-sm btn-success">edit</a>

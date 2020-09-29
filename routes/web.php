@@ -25,17 +25,32 @@ Route::name('accounting.')
     ->group(function () {
 
         // data ajax
-        Route::get('fakturall/data', 'DataController@fakturall')->name('fakturall.data');
-        Route::get('fakturnoreceive/data', 'DataController@fakturnoreceive')->name('fakturnoreceive.data');
-        Route::get('fakturduplicate/data', 'DataController@fakturduplicate')->name('fakturduplicate.data');
-        // Route::get('fakturbelumsap/data', 'DataController@fakturbelumsap')->name('fakturbelumsap.data');
+        Route::get('faktur/all/data', 'DataController@fakturall')->name('fakturs.all.data');
+        Route::get('faktur/receive/data', 'DataController@receive')->name('fakturs.receive.data');
+        Route::get('faktur/duplicates/data', 'DataController@duplicates')->name('fakturs.duplicates.data');
+        Route::get('faktur/belumsap/data', 'DataController@belumsap')->name('fakturs.belumsap.data');
 
-        Route::resource('fakturall', 'FakturallController');
-        Route::resource('fakturnoreceive', 'FakturnoreceiveController');
-        // Route::resource('fakturbelumsap', 'FakturbelumsapController');
-        Route::resource('fakturduplicate', 'FakturduplicateController');
+        Route::get('fakturs/receive', 'FakturController@receive_index')->name('fakturs.receive_index');
+        Route::get('fakturs/duplicates', 'FakturController@duplicates_index')->name('fakturs.duplicates_index');
+        Route::get('fakturs/belumsap', 'FakturController@belumsap_index')->name('fakturs.belumsap_index');
+        Route::resource('fakturs', 'FakturController');
 
-        Route::post('/fakturall/import_excel', 'FakturallController@import_excel')->name('fakturall.import_excel');
+
+        Route::post('/fakturs/import_excel', 'FakturController@import_excel')->name('fakturs.import_excel');
+    });
+
+Route::name('general.')
+    ->prefix('general')
+    ->namespace('General')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        // data ajax
+        Route::get('suppliers/data', 'DataController@suppliers')->name('suppliers.data');
+
+        Route::resource('suppliers', 'SupplierController');
+
+        Route::post('/suppliers/import_excel', 'SupplierController@import_excel')->name('suppliers.import_excel');
     });
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware(['auth']);

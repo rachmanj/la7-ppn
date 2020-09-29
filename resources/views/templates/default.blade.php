@@ -4,6 +4,7 @@
 @include('templates.partials.head')
 
 <body class="hold-transition skin-blue sidebar-mini">
+  
 <div class="wrapper">
 
 @include('templates.partials.topbar')
@@ -28,6 +29,7 @@
     <!-- /.content -->
     
   </div>
+
   @include('templates.partials.footer')
   <!-- /.content-wrapper -->
 

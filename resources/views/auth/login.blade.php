@@ -1,75 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  <meta name="description" content=""/>
-  <meta name="author" content=""/>
-  <title>ARK - PPN | Login</title>
-  <!--favicon-->
-  <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
-  <!-- Bootstrap core CSS-->
-  <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
-  <!-- animate CSS-->
-  <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
-  <!-- Icons CSS-->
-  <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
-  <!-- Custom Style-->
-  <link href="{{ asset('assets/css/app-style.css') }}" rel="stylesheet"/>
-  
-</head>
+	<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	<title>ARK - PPN | Login</title>
+	
+		
+		<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/bootstrap/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/animate/animate.css') }}">	
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/css-hamburgers/hamburgers.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/animsition/css/animsition.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/select2/select2.min.css') }}">	
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/daterangepicker/daterangepicker.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/css/util.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/css/main.css') }}">
 
-<body>
- <!-- Start wrapper-->
- <div id="wrapper">
-	<div class="card border-primary border-top-sm border-bottom-sm card-authentication1 mx-auto my-5 animated bounceInDown">
-		<div class="card-body">
-		 <div class="card-content p-2">
-		 	<div class="text-center">
-		 		<img src="{{ asset('assets/images/logo-icon.png') }}">
-		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">ARK - Faktur PPN</div>
-            <form action="{{ route('login') }}" method="POST">
-                @csrf
-			  <div class="form-group">
-			   <div class="position-relative has-icon-right">
-				  <label for="exampleInputUsername" class="sr-only">Username</label>
-				  <input type="text" name="username" id="exampleInputUsername" class="form-control form-control-rounded @error('username') is-invalid @enderror" placeholder="Username or email">
-				  <div class="form-control-position">
-					  <i class="icon-user"></i>
-				  </div>
-				  @error('username')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-			   </div>
-			  </div>
-			  <div class="form-group">
-			   <div class="position-relative has-icon-right">
-				  <label for="exampleInputPassword" class="sr-only">Password</label>
-				  <input type="password" name="password" id="exampleInputPassword" class="form-control form-control-rounded @error('password') is-invalid @enderror" placeholder="Password">
-				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
-				  </div>
-				  @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-			   </div>
-			  </div>
-			 <button type="submit" class="btn btn-primary shadow-primary btn-round btn-block waves-effect waves-light">Sign In</button>
-			 </form>
-		   </div>
-		  </div>
-	     </div>
-    	
-  <!-- Bootstrap core JavaScript-->
-  <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-  <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-  <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-  
-</body>
+	</head>
+
+	<body>
+	<!-- Start wrapper-->
+	<div id="wrapper">
+		<div class="container-login100" style="background-image: url('login_v9/images/bg-01.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+
+				<form action="{{ route('login') }}" method="POST" class="login100-form validate-form">
+					@csrf
+					<span class="login100-form-title p-b-37">
+						Sign In
+					</span>
+					<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+						<input type="text" name="username" id="exampleInputUsername" class="input100" placeholder="Username or email">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+						<input type="password" name="password" id="exampleInputPassword" class="input100" placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">Sign In</button>
+					</div>
+				</form>
+			</div>
+		</div>
+			
+			<script src="{{ asset('login_v9/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+			<script src="{{ asset('login_v9/vendor/animsition/js/animsition.min.js') }}"></script>
+			<script src="{{ asset('login_v9/vendor/bootstrap/js/popper.js') }}"></script>
+			<script src="{{ asset('login_v9/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+			<script src="{{ asset('login_v9/vendor/select2/select2.min.js') }}"></script>
+			<script src="{{ asset('login_v9/vendor/daterangepicker/moment.min.js') }}"></script>
+			<script src="{{ asset('login_v9/vendor/daterangepicker/daterangepicker.js') }}"></script>
+			<script src="{{ asset('login_v9/vendor/countdowntime/countdowntime.js') }}"></script>
+			<script src="{{ asset('login_v9/js/main.js') }}"></script>
+	
+	</body>
 </html>
