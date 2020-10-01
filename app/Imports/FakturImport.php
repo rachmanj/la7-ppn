@@ -28,7 +28,7 @@ class FakturImport implements ToModel, WithHeadingRow
             'remark'            => $row['remark'],
             'sap_user'          => $row['sap_user'],
             'invoice_no'        => $row['invoice_no'],
-            'invoice_remakrs'   => $row['invoice_remakrs'],
+            'invoice_remarks'   => $row['invoice_remarks'],
             'created_by'        => 'excel import',
         ]);
     }
