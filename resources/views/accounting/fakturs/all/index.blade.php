@@ -29,6 +29,7 @@
                     <th>Faktur No</th>
                     <th>Faktur Date</th>
                     <th>Amount</th>
+                    <th>ReceiveD</th>
                     <th>CreateD</th>
                     <th>PostD</th>
                     <th>action</th>
@@ -95,6 +96,7 @@
                 {data: 'faktur_no'},
                 {data: 'faktur_date'},
                 {data: 'amount'},
+                {data: 'receive_date'},
                 {data: 'creation_date'},
                 {data: 'posting_date'},
                 {data: 'action'},

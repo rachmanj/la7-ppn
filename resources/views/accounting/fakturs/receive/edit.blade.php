@@ -20,12 +20,18 @@
                     <dd>{{ $faktur->document_no }}</dd>
                     <dt>Faktur No</dt>
                     <dd>{{ $faktur->faktur_no }}</dd>
+                    <dt>Faktur Date</dt>
+                    <dd>{{ $faktur->faktur_date }}</dd>
                     <dt>Vendor Code</dt>
                     <dd>{{ $faktur->vendor_code }}</dd>
+                    <dt>Vendor Name</dt>
+                    <dd>{{ $supplier->name }}</dd>
                     <dt>Project</dt>
                     <dd>{{ $faktur->project_code }}</dd>
                     <dt>Amount</dt>
                     <dd>IDR {{ number_format($faktur->amount, 2) }}</dd>
+                    <dt>SAP User</dt>
+                    <dd>{{ $faktur->sap_user }}</dd>
                     <dt>Receive Date</dt>
                     <dd><input type="date" name="receive_date"></dd>
                 </dl>

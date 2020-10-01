@@ -110,7 +110,7 @@ class DataController extends Controller
         //     $query->select('faktur_no')->groupBy('faktur_no')->havingRaw('count(*) > 1');
         // })->get();
 
-        $fakturs = Faktur::select('faktur_no')
+        $fakturs = Faktur::whereNotIn('vendor_code', ['VTOTO001'])->select('faktur_no')
             ->selectRaw('count(faktur_no) as occurences') // Jalan yg ini
             ->groupBy('faktur_no')
             ->having('occurences', '>', 1)

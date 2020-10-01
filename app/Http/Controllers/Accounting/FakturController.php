@@ -92,8 +92,9 @@ class FakturController extends Controller
     {
         try {
             $faktur = Faktur::findOrFail($id);
+            $supplier = Supplier::where('code', $faktur->vendor_code)->first();
 
-            return view('accounting.fakturs.receive.edit', compact('faktur'));
+            return view('accounting.fakturs.receive.edit', compact('faktur', 'supplier'));
         } catch (ModelNotFoundException $e) {
             return redirect()->route('accounting.fakturs.receive_index')->with($this->alertNotFound());
         }
