@@ -36,6 +36,9 @@
                     <dd>{{ $faktur->project_code }}</dd>
                     <dt>Invoice Remarks</dt>
                     <dd>{{ $faktur->invoice_remarks }}</dd>
+                    <hr>
+                    <dt>SAP User</dt>
+                    <dd>{{ $faktur->sap_user }}</dd>
                 </dl>
             </div>
             <div class="box-footer">
