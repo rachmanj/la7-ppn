@@ -24,6 +24,8 @@
                     <dd>{{ $faktur->faktur_date }}</dd>
                     <dt>Vendor Code</dt>
                     <dd>{{ $faktur->vendor_code }}</dd>
+                    <dt>Vendor Name</dt>
+                    <dd>{{ $supplier->name }}</dd>
                     <dt>Invoice No</dt>
                     <dd>{{ $faktur->invoice_no }}</dd>
                     <dt>Amount</dt>
