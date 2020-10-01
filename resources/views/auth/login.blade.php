@@ -32,7 +32,7 @@
 				<form action="{{ route('login') }}" method="POST" class="login100-form validate-form">
 					@csrf
 					<span class="login100-form-title p-b-37">
-						Sign In
+						Faktur PPN
 					</span>
 					<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
 						<input type="text" name="username" id="exampleInputUsername" class="input100" placeholder="Username or email">

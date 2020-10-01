@@ -22,12 +22,16 @@
                     <dd>{{ $faktur->faktur_no }}</dd>
                     <dt>Vendor Code</dt>
                     <dd>{{ $faktur->vendor_code }}</dd>
-                    <dt>Project</dt>
-                    <dd>{{ $faktur->project_code }}</dd>
+                    <dt>Invoice No</dt>
+                    <dd>{{ $faktur->invoice_no }}</dd>
                     <dt>Amount</dt>
                     <dd>IDR {{ number_format($faktur->amount, 2) }}</dd>
-                    <dt>Receive Date</dt>
+                    <dt>RECEIVE DATE: </dt>
                     <dd><input type="date" name="receive_date"></dd>
+                    <dt>Project</dt>
+                    <dd>{{ $faktur->project_code }}</dd>
+                    <dt>Invoice Remarks</dt>
+                    <dd>{{ $faktur->invoice_remarks }}</dd>
                 </dl>
             </div>
             <div class="box-footer">
