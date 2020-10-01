@@ -39,6 +39,20 @@
         </a>
       </li>
       <li class="header">ADMIN</li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-users"></i>
+          <span>User Mgmnt</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}"><a href="{{ route('admin.user.index') }}"><i class="fa fa-users"></i><span> Users</span></a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Roles</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Permissions</a></li>
+        </ul>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->
