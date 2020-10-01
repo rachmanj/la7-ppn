@@ -58,9 +58,6 @@ class DataController extends Controller
                 }
                 return null;
             })
-            ->editColumn('creation_date', function (Faktur $model) {
-                return date('d-m-Y', strtotime($model->creation_date));
-            })
             ->editColumn('amount', function (Faktur $model) {
                 return number_format($model->amount, 2);
             })

@@ -73,7 +73,7 @@
             ],
             columnDefs: [
               {
-                "targets": 5,
+                "targets": 7,
                 "className": "text-right"
               }
             ],
