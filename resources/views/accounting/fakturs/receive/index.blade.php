@@ -25,9 +25,9 @@
                           <th>Vendor</th>
                           <th>Faktur No</th>
                           <th>Faktur Date</th>
-                          <th>Amount</th>
-                          <th>CreateD</th>
+                          <th>Inv. No</th>
                           <th>PostD</th>
+                          <th>Amount</th>
                           <th>Days</th>
                           <th>action</th>
                       </tr>
@@ -65,9 +65,9 @@
                 {data: 'vendor_code'},
                 {data: 'faktur_no'},
                 {data: 'faktur_date'},
-                {data: 'amount'},
-                {data: 'creation_date'},
+                {data: 'invoice_no'},
                 {data: 'posting_date'},
+                {data: 'amount'},
                 {data: 'days'},
                 {data: 'action'},
             ],
