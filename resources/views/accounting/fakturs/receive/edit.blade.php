@@ -18,6 +18,8 @@
                 <dl class="dl-horizontal">
                     <dt>SAP Doc No</dt>
                     <dd>{{ $faktur->document_no }}</dd>
+                    <dt>Doc Type</dt>
+                    <dd>{{ $faktur->doc_type }}</dd>
                     <dt>Faktur No</dt>
                     <dd>{{ $faktur->faktur_no }}</dd>
                     <dt>Faktur Date</dt>
@@ -25,13 +27,15 @@
                     <dt>Vendor Code</dt>
                     <dd>{{ $faktur->vendor_code }}</dd>
                     <dt>Vendor Name</dt>
+                    @if ($supplier)
                     <dd>{{ $supplier->name }}</dd>
+                    @endif
                     <dt>Invoice No</dt>
                     <dd>{{ $faktur->invoice_no }}</dd>
                     <dt>Amount</dt>
                     <dd>IDR {{ number_format($faktur->amount, 2) }}</dd>
-                    <dt>RECEIVE DATE: </dt>
-                    <dd><input type="date" name="receive_date"></dd>
+                    <dt class="text-red">RECEIVE DATE: </dt>
+                    <dd><input type="date" name="receive_date" class="form-control"></dd>
                     <dt>Project</dt>
                     <dd>{{ $faktur->project_code }}</dd>
                     <dt>Invoice Remarks</dt>
