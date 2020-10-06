@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-  <div class="row">
+<div class="row">
+  <div class="col-lg-12">
     <div class="box">
       <div class="box-header">
         @if (session('message'))

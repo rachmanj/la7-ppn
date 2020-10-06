@@ -6,40 +6,36 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="box">
-            <div class="box-header">
-            </div>
-            <div class="box-body">
-              @if (session('message'))
-                <x-alert :type="session('type')" :message="session('message')"/>
-              @endif
-              <div class="table-responsive">
-                <table id="datatable-faktur" class="table table-bordered">
-                  <thead class="thead-primary">
-                      <tr>
-                          <th>#</th>
-                          {{-- <th>Doc. No.</th>
-                          <th>Created by</th> --}}
-                          <th>Faktur No</th>
-                          {{-- <th>Faktur Date</th>
-                          <th>Amount</th>
-                          <th>CreateD</th>
-                          <th>PostD</th> --}}
-                          <th>Occurences</th>
-                          {{-- <th>action</th> --}}
-                      </tr>
-                  </thead>
-                </table>
-              </div>
-            </div>
-          </div>
+  <div class="col-lg-12">
+    <div class="box">
+      <div class="box-header">
+      </div>
+      <div class="box-body">
+        @if (session('message'))
+          <x-alert :type="session('type')" :message="session('message')"/>
+        @endif
+        <div class="table-responsive">
+          <table id="datatable-faktur" class="table table-bordered">
+            <thead class="thead-primary">
+                <tr>
+                    <th>#</th>
+                    {{-- <th>Doc. No.</th>
+                    <th>Created by</th> --}}
+                    <th>Faktur No</th>
+                    {{-- <th>Faktur Date</th>
+                    <th>Amount</th>
+                    <th>CreateD</th>
+                    <th>PostD</th> --}}
+                    <th>Occurences</th>
+                    {{-- <th>action</th> --}}
+                </tr>
+            </thead>
+          </table>
         </div>
-      </div><!-- End Row-->
+      </div>
     </div>
   </div>
+</div><!-- End Row-->
 @endsection
 
 @push('styles')
