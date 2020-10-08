@@ -25,6 +25,7 @@
                     <th>Faktur Date</th>
                     <th>Inv. No</th>
                     <th>PostD</th>
+                    <th>SAP Create</th>
                     <th>Amount</th>
                     <th>Days</th>
                     <th>action</th>
@@ -63,13 +64,14 @@
                 {data: 'faktur_date'},
                 {data: 'invoice_no'},
                 {data: 'posting_date'},
+                {data: 'creation_date'},
                 {data: 'amount'},
                 {data: 'days'},
                 {data: 'action'},
             ],
             columnDefs: [
               {
-                "targets": 7,
+                "targets": 8,
                 "className": "text-right"
               }
             ],

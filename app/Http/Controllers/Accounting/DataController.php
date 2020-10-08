@@ -64,11 +64,8 @@ class DataController extends Controller
             ->editColumn('posting_date', function (Faktur $model) {
                 return date('d-m-Y', strtotime($model->posting_date));
             })
-            ->editColumn('receive_date', function (Faktur $model) {
-                if ($model->receive_date) {
-                    return date('d-m-Y', strtotime($model->receive_date));
-                }
-                return null;
+            ->editColumn('creation_date', function (Faktur $model) {
+                return date('d-m-Y', strtotime($model->creation_date));
             })
             ->addIndexColumn()
             ->addColumn('action', 'accounting.fakturs.receive.action')
