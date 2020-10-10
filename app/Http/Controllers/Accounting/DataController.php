@@ -44,7 +44,10 @@ class DataController extends Controller
 
     public function receive()
     {
-        $fakturs = Faktur::orderBy('posting_date', 'asc')->whereNull('receive_date')->get();
+        $fakturs = Faktur::orderBy('posting_date', 'asc')
+            ->whereNull('receive_date')
+            ->where('doc_type', '!=', 'AP DP')
+            ->get();
 
         return datatables()->of($fakturs)
             ->addColumn('days', function (Faktur $model) {
