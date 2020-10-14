@@ -113,11 +113,13 @@ class FakturController extends Controller
             $faktur = Faktur::findOrFail($id);
 
             $this->validate($request, [
-                'receive_date' => ['required'],
+                'faktur_no'     => ['required'],
+                'receive_date'  => ['required'],
             ]);
 
             $faktur->update([
-                'receive_date' => $request->receive_date,
+                'faktur_no'         => $request->faktur_no,
+                'receive_date'      => $request->receive_date,
                 'receive_updated_by' => auth()->user()->name
             ]);
 

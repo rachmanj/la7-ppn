@@ -20,8 +20,10 @@
                     <dd>{{ $faktur->document_no }}</dd>
                     <dt>Doc Type</dt>
                     <dd>{{ $faktur->doc_type }}</dd>
-                    <dt>Faktur No</dt>
-                    <dd>{{ $faktur->faktur_no }}</dd>
+                    <div class="form-group @error('faktur_no') has-error @enderror">
+                        <dt class="form-group text-red">FAKTUR NO</dt>
+                        <dd><input type="text" name="faktur_no" class="form-control" value="{{ old('faktur_no', $faktur->faktur_no) }}">@error ('faktur_no') {{ $message }} @enderror</dd>
+                    </div>
                     <dt>Faktur Date</dt>
                     <dd>{{ $faktur->faktur_date }}</dd>
                     <dt>Vendor Code</dt>
@@ -34,8 +36,10 @@
                     <dd>{{ $faktur->invoice_no }}</dd>
                     <dt>Amount</dt>
                     <dd>IDR {{ number_format($faktur->amount, 2) }}</dd>
-                    <dt class="text-red">RECEIVE DATE: </dt>
-                    <dd><input type="date" name="receive_date" class="form-control"></dd>
+                    <div class="form-group @error ('receive_date') has-error @enderror">
+                        <dt class="text-red">RECEIVE DATE: </dt>
+                    <dd><input type="date" name="receive_date" class="form-control">@error ('receive_date') {{ $message }} @enderror</dd>
+                    </div>
                     <dt>Project</dt>
                     <dd>{{ $faktur->project_code }}</dd>
                     <dt>Invoice Remarks</dt>
