@@ -25,8 +25,8 @@
                     <th>Faktur Date</th>
                     <th>Inv. No</th>
                     <th>PostD</th>
-                    <th>SAP Create</th>
                     <th>Amount</th>
+                    <th>SAP User</th>
                     <th>Days</th>
                     <th>action</th>
                 </tr>
@@ -64,8 +64,8 @@
                 {data: 'faktur_date'},
                 {data: 'invoice_no'},
                 {data: 'posting_date'},
-                {data: 'creation_date'},
                 {data: 'amount'},
+                {data: 'sap_user'},
                 {data: 'days'},
                 {data: 'action'},
             ],

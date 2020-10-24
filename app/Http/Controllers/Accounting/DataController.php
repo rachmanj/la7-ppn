@@ -44,14 +44,14 @@ class DataController extends Controller
 
     public function receive()
     {
-        $fakturs = Faktur::orderBy('posting_date', 'asc')
+        $fakturs = Faktur::orderBy('faktur_date', 'asc')
             ->whereNull('receive_date')
             ->where('doc_type', '!=', 'AP DP')
             ->get();
 
         return datatables()->of($fakturs)
             ->addColumn('days', function (Faktur $model) {
-                $date = Carbon::parse($model->posting_date);
+                $date = Carbon::parse($model->faktur_date);
                 $now = Carbon::now();
                 return $date->diffInDays($now);
             })
