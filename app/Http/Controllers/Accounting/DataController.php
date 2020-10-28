@@ -103,7 +103,7 @@ class DataController extends Controller
 
     public function duplicates()
     {
-        $fakturs = Faktur::whereNotIn('vendor_code', ['VTOTO001'])->select('faktur_no')
+        $fakturs = Faktur::whereNotIn('vendor_code', ['VTOTO001', 'VGASEMAS001'])->select('faktur_no')
             ->selectRaw('count(faktur_no) as occurences') // Jalan yg ini
             ->groupBy('faktur_no')
             ->having('occurences', '>', 1)
