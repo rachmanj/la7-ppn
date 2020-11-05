@@ -12,7 +12,7 @@ class DataController extends Controller
 {
     public function fakturall()
     {
-        $fakturs = Faktur::orderBy('document_no', 'desc')->get();
+        $fakturs = Faktur::orderBy('creation_date', 'desc')->get();
 
         return datatables()->of($fakturs)
             ->editColumn('faktur_date', function (Faktur $model) {
