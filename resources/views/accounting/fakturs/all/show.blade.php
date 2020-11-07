@@ -29,20 +29,24 @@
                         <td>{{ $faktur->vendor_code }}</td>
                     </tr>
                     <tr>
+                        <th class="text-right">Vendor Name</th>
+                        <td>{{ $supplier->name }}</td>
+                    </tr>
+                    <tr>
                         <th class="text-right">Faktur Date</th>
-                        <td>{{ $faktur->faktur_date }}</td>
+                        <td>{{ date('d-m-Y', strtotime($faktur->faktur_date)) }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Amount</th>
-                        <td>{{ $faktur->amount }}</td>
+                        <td>IDR {{ number_format($faktur->amount, 2) }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Creation Date</th>
-                        <td>{{ $faktur->creation_date }}</td>
+                        <td>{{ date('d-m-Y', strtotime($faktur->creation_date)) }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Posting Date</th>
-                        <td>{{ $faktur->posting_date }}</td>
+                        <td>{{ date('d-m-Y', strtotime($faktur->posting_date)) }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Project</th>
@@ -66,7 +70,7 @@
                     </tr>
                     <tr>
                         <th class="text-right">Receive Date</th>
-                        <td>{{ $faktur->receive_date }}</td>
+                        <td>@if($faktur->receive_date) {{ date('d-m-Y', strtotime($faktur->receive_date)) }} @endif</td>
                     </tr>
                     <tr>
                         <th class="text-right">Receive Updated By</th>
