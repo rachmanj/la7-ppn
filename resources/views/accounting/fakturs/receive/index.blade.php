@@ -1,42 +1,41 @@
 @extends('templates.default')
 
 @section('breadcrumb')
-<h4>Faktur Belum Diterima</h4>
+<h1>Fakturs<small>Faktur Belum Diterima</small></h1>
 @endsection
 
 @section('content')
-<div class="row">
-  <div class="col-lg-12">
-    <div class="box">
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <div class="box box-primary">
       <div class="box-header with-border">
         @if (session('message'))
           <x-alert :type="session('type')" :message="session('message')"/>
         @endif
         <a href="{{ route('accounting.fakturs.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Faktur</a>
       </div>
-        <div class="table-responsive">
-          <table id="datatable-faktur" class="table table-bordered">
-            <thead class="thead-primary">
-                <tr>
-                    <th>#</th>
-                    <th>Doc. No.</th>
-                    <th>Vendor</th>
-                    <th>Faktur No</th>
-                    <th>Faktur Date</th>
-                    <th>Inv. No</th>
-                    <th>PostD</th>
-                    <th>Amount</th>
-                    <th>SAP User</th>
-                    <th>Days</th>
-                    <th>action</th>
-                </tr>
-            </thead>
-          </table>
-        </div>
+      <div class="box-body">
+        <table id="datatable-faktur" class="table table-bordered table-striped">
+          <thead class="thead-primary">
+            <tr>
+              <th>#</th>
+              <th>Doc. No.</th>
+              <th>Vendor</th>
+              <th>Faktur No</th>
+              <th>Faktur Date</th>
+              <th>Inv. No</th>
+              <th>PostD</th>
+              <th>Amount</th>
+              <th>SAP User</th>
+              <th>Days</th>
+              <th>action</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
   </div>
-</div><!-- End Row-->
+</div> <!-- End Row-->
 @endsection
 
 @push('styles')
@@ -71,7 +70,7 @@
             ],
             columnDefs: [
               {
-                "targets": 7,
+                "targets": [7,9],
                 "className": "text-right"
               }
             ],

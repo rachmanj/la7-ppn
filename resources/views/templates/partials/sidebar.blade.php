@@ -39,7 +39,7 @@
         </a>
       </li>
       <li class="header">ADMIN</li>
-      <li class="treeview">
+      <li class="treeview {{ request()->is('admin/user') || request()->is('admin/user/*') ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-users"></i>
           <span>User Mgmnt</span>
@@ -48,7 +48,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}"><a href="{{ route('admin.user.index') }}"><i class="fa fa-users"></i><span> Users</span></a></li>
+          <li class="{{ request()->is('admin/user') || request()->is('admin/user/*') ? 'active' : '' }}"><a href="{{ route('admin.user.index') }}"><i class="fa fa-users"></i><span> Users</span></a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Roles</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Permissions</a></li>
         </ul>

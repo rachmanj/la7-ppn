@@ -1,37 +1,35 @@
 @extends('templates.default')
 
 @section('breadcrumb')
-<h4>Dulicates Fakturs</h4>
+<h1>Fakturs<small>Duplicate Fakturs</small></h1>
 @endsection
 
 @section('content')
-<div class="row">
-  <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header">
-      </div>
-      <div class="box-body">
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <div class="box box-primary">
+      <div class="box-header with-border">
         @if (session('message'))
           <x-alert :type="session('type')" :message="session('message')"/>
         @endif
-        <div class="table-responsive">
-          <table id="datatable-faktur" class="table table-bordered">
-            <thead class="thead-primary">
-                <tr>
-                    <th>#</th>
-                    {{-- <th>Doc. No.</th>
-                    <th>Created by</th> --}}
-                    <th>Faktur No</th>
-                    {{-- <th>Faktur Date</th>
-                    <th>Amount</th>
-                    <th>CreateD</th>
-                    <th>PostD</th> --}}
-                    <th>Occurences</th>
-                    {{-- <th>action</th> --}}
-                </tr>
-            </thead>
-          </table>
-        </div>
+      </div>
+      <div class="box-body">
+        <table id="datatable-faktur" class="table table-bordered">
+          <thead class="thead-primary">
+            <tr>
+                <th>#</th>
+                {{-- <th>Doc. No.</th>
+                <th>Created by</th> --}}
+                <th>Faktur No</th>
+                {{-- <th>Faktur Date</th>
+                <th>Amount</th>
+                <th>CreateD</th>
+                <th>PostD</th> --}}
+                <th>Occurences</th>
+                {{-- <th>action</th> --}}
+            </tr>
+          </thead>
+        </table>        
       </div>
     </div>
   </div>

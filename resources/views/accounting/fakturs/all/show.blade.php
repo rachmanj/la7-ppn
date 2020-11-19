@@ -1,21 +1,20 @@
 @extends('templates.default')
 
+@section('breadcrumb')
+<h1>Fakturs<small>Detail</small></h1>
+@endsection
+
 @section('content')
-<div class="row">
-    <div class="col-lg-12">
-      <div>
-        
-        <div class="col-lg-10">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h4>Faktur Detail</h4>
-                    <a href="{{ route('accounting.fakturs.index') }}" type="button" class="btn btn-primary pull-right">
-                        <i class="fa fa-undo"></i> Back
-                    </a>
-                </div>
-              <div class="panel-body">
-                <div class="table-responsive">
-                 <table class="table">
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <a href="{{ route('accounting.fakturs.index') }}" type="button" class="btn btn-primary">
+                    <i class="fa fa-undo"></i> Back
+                </a>
+            </div>
+            <div class="box-body">
+                <table class="table">
                     <tr>
                         <th class="text-right">Faktur No.</th>
                         <td>{{ $faktur->faktur_no }}</td>
@@ -34,19 +33,19 @@
                     </tr>
                     <tr>
                         <th class="text-right">Faktur Date</th>
-                        <td>{{ date('d-m-Y', strtotime($faktur->faktur_date)) }}</td>
+                        <td>{{ date('d-M-Y', strtotime($faktur->faktur_date)) }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Amount</th>
                         <td>IDR {{ number_format($faktur->amount, 2) }}</td>
                     </tr>
                     <tr>
-                        <th class="text-right">Creation Date</th>
-                        <td>{{ date('d-m-Y', strtotime($faktur->creation_date)) }}</td>
+                        <th class="text-right">Posting Date</th>
+                        <td>{{ date('d-M-Y', strtotime($faktur->posting_date)) }}</td>
                     </tr>
                     <tr>
-                        <th class="text-right">Posting Date</th>
-                        <td>{{ date('d-m-Y', strtotime($faktur->posting_date)) }}</td>
+                        <th class="text-right">Creation Date</th>
+                        <td>{{ date('d-M-Y', strtotime($faktur->creation_date)) }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Project</th>
@@ -78,18 +77,14 @@
                     </tr>
                     <tr>
                         <th class="text-right">Imported at</th>
-                        <td>{{ date('d-m-Y H:i:s', strtotime('+1 hour', strtotime($faktur->created_at))) }}</td>
+                        <td>{{ date('d-M-Y H:i:s', strtotime('+1 hour', strtotime($faktur->created_at))) }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Updated at</th>
-                        <td>{{ date('d-m-Y H:i:s', strtotime('+1 hour', strtotime($faktur->updated_at))) }}</td>
+                        <td>{{ date('d-M-Y H:i:s', strtotime('+1 hour', strtotime($faktur->updated_at))) }}</td>
                     </tr>
-                  </table>
-              </div>
-              </div>
-            </div>
-
+                </table>    
+            </div>           
       </div>
-    </div>
   </div>
 @endsection

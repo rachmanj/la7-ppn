@@ -1,7 +1,7 @@
 @extends('templates.default')
 
 @section('breadcrumb')
-<h4>List of Faktur</h4>
+<h1>Fakturs<small>List</small></h1>
 @endsection
 
 @section('content')

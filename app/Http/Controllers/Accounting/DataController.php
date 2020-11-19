@@ -17,22 +17,22 @@ class DataController extends Controller
         return datatables()->of($fakturs)
             ->editColumn('faktur_date', function (Faktur $model) {
                 if ($model->faktur_date) {
-                    return date('d-m-Y', strtotime($model->faktur_date));
+                    return date('d-M-Y', strtotime($model->faktur_date));
                 }
                 return null;
             })
             ->editColumn('creation_date', function (Faktur $model) {
-                return date('d-m-Y', strtotime($model->creation_date));
+                return date('d-M-Y', strtotime($model->creation_date));
             })
             ->editColumn('amount', function (Faktur $model) {
                 return number_format($model->amount, 2);
             })
             ->editColumn('posting_date', function (Faktur $model) {
-                return date('d-m-Y', strtotime($model->posting_date));
+                return date('d-M-Y', strtotime($model->posting_date));
             })
             ->editColumn('receive_date', function (Faktur $model) {
                 if ($model->receive_date) {
-                    return date('d-m-Y', strtotime($model->receive_date));
+                    return date('d-M-Y', strtotime($model->receive_date));
                 }
                 return null;
             })
@@ -57,7 +57,7 @@ class DataController extends Controller
             })
             ->editColumn('faktur_date', function (Faktur $model) {
                 if ($model->faktur_date) {
-                    return date('d-m-Y', strtotime($model->faktur_date));
+                    return date('d-M-Y', strtotime($model->faktur_date));
                 }
                 return null;
             })
@@ -65,10 +65,10 @@ class DataController extends Controller
                 return number_format($model->amount, 2);
             })
             ->editColumn('posting_date', function (Faktur $model) {
-                return date('d-m-Y', strtotime($model->posting_date));
+                return date('d-M-Y', strtotime($model->posting_date));
             })
             ->editColumn('creation_date', function (Faktur $model) {
-                return date('d-m-Y', strtotime($model->creation_date));
+                return date('d-M-Y', strtotime($model->creation_date));
             })
             ->addIndexColumn()
             ->addColumn('action', 'accounting.fakturs.receive.action')
@@ -87,13 +87,13 @@ class DataController extends Controller
                 return $date->diffInDays($now);
             })
             ->editColumn('created_at', function (Faktur $model) {
-                return date('d-m-Y', strtotime($model->created_at));
+                return date('d-M-Y', strtotime($model->created_at));
             })
             ->editColumn('amount', function (Faktur $model) {
                 return number_format($model->amount, 2);
             })
             ->editColumn('receive_date', function (Faktur $model) {
-                return date('d-m-Y', strtotime($model->receive_date));
+                return date('d-M-Y', strtotime($model->receive_date));
             })
             ->addIndexColumn()
             ->addColumn('action', 'accounting.fakturs.belumsap.action')
