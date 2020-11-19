@@ -1,64 +1,71 @@
+
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-	<meta charset="utf-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-	<meta name="description" content=""/>
-	<meta name="author" content=""/>
-	<title>ARK - PPN | Login</title>
-	
-		
-		<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/bootstrap/css/bootstrap.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/fonts/iconic/css/material-design-iconic-font.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/animate/animate.css') }}">	
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/css-hamburgers/hamburgers.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/animsition/css/animsition.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/select2/select2.min.css') }}">	
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/vendor/daterangepicker/daterangepicker.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/css/util.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('login_v9/css/main.css') }}">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ARKSys | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="{{ asset('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('assets/bower_components/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{{ asset('assets/bower_components/ionicons/css/ionicons.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('assets/dist/css/AdminLTE.min.css') }}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/iCheck/square/blue.css') }}">
 
-	</head>
+  </head>
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a><b>ARKA</b> System</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">Module: Accounting</p>
+		<form action="{{ route('login') }}" method="post">
+			@csrf
+          <div class="form-group has-feedback">
+            <input name="username" type="text" class="form-control" placeholder="Username">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input name="password" type="password" class="form-control" placeholder="Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              {{-- <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox"> Remember Me
+                </label>
+              </div> --}}
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
 
-	<body>
-	<!-- Start wrapper-->
-	<div id="wrapper">
-		<div class="container-login100" style="background-image: url('login_v9/images/bg-01.jpg');">
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-
-				<form action="{{ route('login') }}" method="POST" class="login100-form validate-form">
-					@csrf
-					<span class="login100-form-title p-b-37">
-						Faktur PPN
-					</span>
-					<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-						<input type="text" name="username" id="exampleInputUsername" class="input100" placeholder="Username or email">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-						<input type="password" name="password" id="exampleInputPassword" class="input100" placeholder="Password">
-						<span class="focus-input100"></span>
-					</div>
-					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn">Sign In</button>
-					</div>
-				</form>
-			</div>
-		</div>
-			
-			<script src="{{ asset('login_v9/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-			<script src="{{ asset('login_v9/vendor/animsition/js/animsition.min.js') }}"></script>
-			<script src="{{ asset('login_v9/vendor/bootstrap/js/popper.js') }}"></script>
-			<script src="{{ asset('login_v9/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-			<script src="{{ asset('login_v9/vendor/select2/select2.min.js') }}"></script>
-			<script src="{{ asset('login_v9/vendor/daterangepicker/moment.min.js') }}"></script>
-			<script src="{{ asset('login_v9/vendor/daterangepicker/daterangepicker.js') }}"></script>
-			<script src="{{ asset('login_v9/vendor/countdowntime/countdowntime.js') }}"></script>
-			<script src="{{ asset('login_v9/js/main.js') }}"></script>
-	
-	</body>
+    <!-- jQuery 2.1.4 -->
+    <script src="{{ asset('assets/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{{ asset('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- iCheck -->
+    <script src="{{ asset('assets/plugins/iCheck/icheck.min.js') }}"></script>
+    <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
+  </body>
 </html>

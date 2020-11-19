@@ -1,17 +1,13 @@
 @extends('templates.default')
 
+@section('breadcrumb')
+  <h1>Faktur<small> New Faktur</small></h1>
+@endsection
+
 @section('content')
-<section class="content-header">
-    <h1>
-      Faktur Detail
-      <small>Detail Faktur</small>
-    </h1>
-</section>
-
-<section class="content">
-  <div class="row col-md-8">
-
-    <div class="box box-info">
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <div class="box box-primary">
       <div class="box-header with-border">
         <a href="{{ route('accounting.fakturs.receive_index') }}" class="btn btn-primary"><i fa fa-undo></i> Back</a>
       </div>
@@ -29,7 +25,7 @@
               @enderror
             </div>
           </div>
-
+  
           <div class="form-group @error('faktur_date') has-error @enderror">
             <label for="faktur_date" class="col-sm-2 control-label">Faktur Date *</label>
             <div class="col-sm-10">
@@ -39,7 +35,7 @@
               @enderror
             </div>
           </div>
-
+  
           <div class="form-group @error('supplier_code') has-error @enderror">
             <label for="supplier_code" class="col-sm-2 control-label">Supplier *</label>
             <div class="col-sm-10">
@@ -64,7 +60,7 @@
             </div>
           </div>
           <div class="form-group @error('receive_date') has-error @enderror">
-            <label for="receive_date" class="col-sm-2 control-label">Receive *</label>
+            <label for="receive_date" class="col-sm-2 control-label">Receive Date*</label>
             <div class="col-sm-10">
               <input type="date" class="form-control" id="receive_date" name="receive_date" value="{{ old('receive_date') }}">
               @error('receive_date')
@@ -74,15 +70,15 @@
           </div>
         </div>
         <!-- /.box-body -->
-        <div class="box-footer">
+        <div class="box-footer with-border">
           <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
         </div>
         <!-- /.box-footer -->
       </form>
     </div>
-
   </div>
-</section>    
+
+</div>  
 @endsection
 
 @push('styles')
