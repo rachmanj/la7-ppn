@@ -62,4 +62,12 @@ trait FlashAlert
             'message' => 'Data successfuly imported!'
         ];
     }
+
+    public function passwordChanged()
+    {
+        return [
+            'type' => 'success',
+            'message' => 'Password successfuly changed!'
+        ];
+    }
 }

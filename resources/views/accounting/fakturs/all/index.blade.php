@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
+    <div class="box box-primary">
       <div class="box-header">
         @if (session('message'))
               <x-alert :type="session('type')" :message="session('message')"/>

@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-12">
+    <div class="col-md-10">
         <div class="box box-primary">
             <div class="box-header with-border">
                 <a class="btn btn-primary" href="{{ route('admin.user.index') }}"><i class="fa fa-undo"></i> Back</a>

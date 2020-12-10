@@ -1,44 +1,38 @@
 @extends('templates.default')
 
 @section('breadcrumb')
-<h1>
-  Suppliers
-  <small>Suppliers</small>
+<h1>Suppliers<small> List</small>
 </h1>
-{{-- <ol class="breadcrumb">
-  <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-  <li class="active">Dashboard</li>
-</ol> --}}
 @endsection
 
 @section('content')
-  <div class="container">
-    <div class="row">
-      <div class="box">
-        <div class="box-header">
-          @role(['superadmin', 'admin'])
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel">
-              <i class="fa fa-upload"></i> Upload Excel
-            </button>
-          @endrole
-        </div>
-        <div class="box-body">
-          <div class="table-responsive">
-            <table id="datatable-suppliers" class="table table-bordered">
-              <thead class="thead-primary">
-                  <tr>
-                      <th>#</th>
-                      <th>Code.</th>
-                      <th>Name</th>
-                      <th>action</th>
-                  </tr>
-              </thead>
-            </table>
-          </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-primary">
+      <div class="box-header">
+        @role(['superadmin', 'admin'])
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel">
+            <i class="fa fa-upload"></i> Upload Excel
+          </button>
+        @endrole
+      </div>
+      <div class="box-body">
+        <div class="table-responsive">
+          <table id="datatable-suppliers" class="table table-bordered">
+            <thead class="thead-primary">
+                <tr>
+                    <th>#</th>
+                    <th>Code.</th>
+                    <th>Name</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+          </table>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <!-- Import Excel -->
 

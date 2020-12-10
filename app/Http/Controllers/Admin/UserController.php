@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 use App\Traits\FlashAlert;
 
 class UserController extends Controller
@@ -74,7 +75,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $user = User::findOrFail($id);
+
+            return view('admin.user.show', compact('user'));
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('home')->with($this->alertNotFound());
+        }
     }
 
     /**
@@ -156,6 +163,29 @@ class UserController extends Controller
             return redirect()->route('admin.user.index')->with($this->alertDeleted());
         } catch (ModelNotFoundException $e) {
             return redirect()->route('admin.user.index')->with($this->alertNotFound());
+        }
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function change_password(Request $request, $id)
+    {
+        try {
+            $user = User::findOrFail($id);
+
+            $this->validate($request, [
+                'current_password' => ['required', new MatchOldPassword],
+                'new_password' => ['required'],
+                'new_confirm_password' => ['same:new_password'],
+            ]);
+
+            $user->update(['password' => Hash::make($request->new_password)]);
+            return redirect()->route('admin.user.show', $id)->with($this->passwordChanged());
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('admin.user.show')->with($this->alertNotFound());
         }
     }
 }

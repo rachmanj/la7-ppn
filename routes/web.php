@@ -16,6 +16,7 @@ Route::name('admin.')
         Route::resource('user', 'UserController');
         Route::resource('permission', 'PermissionController');
         Route::resource('role', 'RoleController');
+        Route::put('user/change_password/{id}', 'UserController@change_password')->name('user.change_password');
     });
 
 Route::name('accounting.')
