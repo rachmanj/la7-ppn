@@ -28,10 +28,14 @@ Route::name('accounting.')
         // data ajax
         Route::get('faktur/all/data', 'DataController@fakturall')->name('fakturs.all.data');
         Route::get('faktur/receive/data', 'DataController@receive')->name('fakturs.receive.data');
+        Route::get('faktur/efaktur/data', 'DataController@efaktur')->name('fakturs.efaktur.data');
         Route::get('faktur/duplicates/data', 'DataController@duplicates')->name('fakturs.duplicates.data');
         Route::get('faktur/belumsap/data', 'DataController@belumsap')->name('fakturs.belumsap.data');
 
         Route::get('fakturs/receive', 'FakturController@receive_index')->name('fakturs.receive_index');
+        Route::get('fakturs/efaktur', 'FakturController@efaktur_index')->name('fakturs.efaktur_index');
+        Route::get('fakturs/efaktur/{id}/edit', 'FakturController@efaktur_edit')->name('fakturs.efaktur_edit');
+        Route::put('fakturs/efaktur/{id}', 'FakturController@efaktur_update')->name('fakturs.efaktur_update');
         Route::get('fakturs/duplicates', 'FakturController@duplicates_index')->name('fakturs.duplicates_index');
         Route::get('fakturs/belumsap', 'FakturController@belumsap_index')->name('fakturs.belumsap_index');
         Route::resource('fakturs', 'FakturController');

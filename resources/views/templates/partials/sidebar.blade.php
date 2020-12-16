@@ -27,6 +27,7 @@
         <ul class="treeview-menu">
           <li class="{{ request()->is('accounting/fakturs') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.index') }}"><i class="fa fa-circle-o"></i> All Faktur</a></li>
           <li class="{{ request()->is('accounting/fakturs/receive') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.receive_index') }}"><i class="fa fa-circle-o"></i> Receive Faktur</a></li>
+          <li class="{{ request()->is('accounting/fakturs/efaktur') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.efaktur_index') }}"><i class="fa fa-circle-o"></i> Update eFaktur Date</a></li>
           <li class="{{ request()->is('accounting/fakturs/belumsap') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.belumsap_index') }}"><i class="fa fa-circle-o"></i> Faktur Belum SAP</a></li>
           <li class="{{ request()->is('accounting/fakturs/duplicates') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.duplicates_index') }}"><i class="fa fa-circle-o"></i> Duplicate Entries</a></li>
         </ul>

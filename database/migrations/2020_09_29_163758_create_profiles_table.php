@@ -21,11 +21,6 @@ class CreateProfilesTable extends Migration
             $table->unsignedBigInteger('project_id')->nullable();
             $table->unsignedBigInteger('dept_id')->nullable();
             $table->timestamps();
-
-            $table->foreign('project_id')->references('id')->on('projects')
-                ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('dept_id')->references('id')->on('depts')
-                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -1,0 +1,1 @@
+<a href="{{ route('accounting.fakturs.efaktur_edit', $model->id) }}" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></a>

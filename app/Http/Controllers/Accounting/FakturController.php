@@ -154,6 +154,43 @@ class FakturController extends Controller
         return view('accounting.fakturs.duplicates.index');
     }
 
+    public function efaktur_index()
+    {
+        return view('accounting.fakturs.efaktur.index');
+    }
+
+    public function efaktur_edit($id)
+    {
+        try {
+            $faktur = Faktur::findOrFail($id);
+            $supplier = Supplier::where('code', $faktur->vendor_code)->first();
+
+            return view('accounting.fakturs.efaktur.edit', compact('faktur', 'supplier'));
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('accounting.fakturs.efaktur_index')->with($this->alertNotFound());
+        }
+    }
+
+    public function efaktur_update(Request $request, $id)
+    {
+        try {
+            $faktur = Faktur::findOrFail($id);
+
+            $this->validate($request, [
+                'efaktur_date'  => ['required'],
+            ]);
+
+            $faktur->update([
+                'receive_date'      => $request->efaktur_date,
+                'efaktur_updatedby' => auth()->user()->name
+            ]);
+
+            return redirect()->route('accounting.fakturs.efaktur_index')->with($this->alertUpdated());
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('accounting.fakturs.efaktur_index')->with($this->alertNotFound());
+        }
+    }
+
     public function belumsap_index()
     {
         return view('accounting.fakturs.belumsap.index');

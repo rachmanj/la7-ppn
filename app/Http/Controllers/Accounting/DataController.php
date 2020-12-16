@@ -115,4 +115,39 @@ class DataController extends Controller
             // ->rawColumns(['action'])
             ->toJson();
     }
+
+    public function efaktur()
+    {
+        $fakturs = Faktur::orderBy('faktur_date', 'asc')
+            ->whereNotNull('faktur_no')
+            ->whereNull('efaktur_date')
+            ->where('doc_type', '!=', 'AP DP')
+            ->get();
+
+        return datatables()->of($fakturs)
+            ->addColumn('days', function (Faktur $model) {
+                $date = Carbon::parse($model->faktur_date);
+                $now = Carbon::now();
+                return $date->diffInDays($now);
+            })
+            ->editColumn('faktur_date', function (Faktur $model) {
+                if ($model->faktur_date) {
+                    return date('d-M-Y', strtotime($model->faktur_date));
+                }
+                return null;
+            })
+            ->editColumn('amount', function (Faktur $model) {
+                return number_format($model->amount, 2);
+            })
+            ->editColumn('receive_date', function (Faktur $model) {
+                return date('d-M-Y', strtotime($model->posting_date));
+            })
+            ->editColumn('creation_date', function (Faktur $model) {
+                return date('d-M-Y', strtotime($model->creation_date));
+            })
+            ->addIndexColumn()
+            ->addColumn('action', 'accounting.fakturs.efaktur.action')
+            ->rawColumns(['action'])
+            ->toJson();
+    }
 }

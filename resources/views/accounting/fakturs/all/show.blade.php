@@ -76,6 +76,14 @@
                         <td>{{ $faktur->receive_updated_by }}</td>
                     </tr>
                     <tr>
+                        <th class="text-right">eFaktur Date</th>
+                        <td>@if($faktur->efaktur_date) {{ date('d-m-Y', strtotime($faktur->efaktur_date)) }} @endif</td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">eFaktur Updated By</th>
+                        <td>{{ $faktur->efaktur_updatedby }}</td>
+                    </tr>
+                    <tr>
                         <th class="text-right">Imported at</th>
                         <td>{{ date('d-M-Y H:i:s', strtotime('+1 hour', strtotime($faktur->created_at))) }}</td>
                     </tr>
