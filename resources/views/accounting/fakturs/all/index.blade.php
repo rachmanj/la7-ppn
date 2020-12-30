@@ -17,6 +17,7 @@
               <i class="fa fa-upload"></i> Upload Excel
           </button>
         @endrole
+        <a href="{{ route('accounting.fakturs.export_excel') }}" class="btn btn-primary"><i class="fa fa-download"></i> Export to Excel</a>
       </div>
       <div class="box-body">
         <div class="table-responsive">

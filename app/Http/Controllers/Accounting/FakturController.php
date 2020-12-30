@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Accounting;
 use App\Faktur;
 use App\Http\Controllers\Controller;
 use App\Imports\FakturImport;
+use App\Exports\FakturExport;
 use App\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -79,7 +80,7 @@ class FakturController extends Controller
 
             return view('accounting.fakturs.all.show', compact('faktur', 'supplier'));
         } catch (ModelNotFoundException $e) {
-            return redirect()->route('accounting.fakturs.all.index')->with($this->alertNotFound());
+            return redirect()->route('accounting.fakturs.index')->with($this->alertNotFound());
         }
     }
 
@@ -215,6 +216,13 @@ class FakturController extends Controller
         // import data
         Excel::import(new FakturImport, public_path('/file_upload/' . $nama_file));
 
-        return redirect()->route('accounting.fakturs.index')->with($this->alertImport());;
+        return redirect()->route('accounting.fakturs.index')->with($this->alertImport());
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new FakturExport, 'fakturs.xlsx');
+
+        //redirect()->route('accounting.fakturs.index')->with($this->alertImport());
     }
 }

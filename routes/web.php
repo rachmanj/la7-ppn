@@ -42,6 +42,7 @@ Route::name('accounting.')
 
 
         Route::post('/fakturs/import_excel', 'FakturController@import_excel')->name('fakturs.import_excel');
+        Route::get('/fakturs/export_excel', 'FakturController@export_excel')->name('fakturs.export_excel');
     });
 
 Route::name('general.')
