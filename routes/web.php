@@ -25,6 +25,8 @@ Route::name('accounting.')
     ->middleware(['auth'])
     ->group(function () {
 
+        Route::get('/fakturs/export_excel', 'FakturController@export_excel')->name('fakturs.export_excel');
+
         // data ajax
         Route::get('faktur/all/data', 'DataController@fakturall')->name('fakturs.all.data');
         Route::get('faktur/receive/data', 'DataController@receive')->name('fakturs.receive.data');
@@ -42,7 +44,6 @@ Route::name('accounting.')
 
 
         Route::post('/fakturs/import_excel', 'FakturController@import_excel')->name('fakturs.import_excel');
-        Route::get('/fakturs/export_excel', 'FakturController@export_excel')->name('fakturs.export_excel');
     });
 
 Route::name('general.')

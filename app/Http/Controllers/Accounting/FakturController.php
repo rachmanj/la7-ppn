@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Accounting;
 use App\Faktur;
 use App\Http\Controllers\Controller;
 use App\Imports\FakturImport;
-use App\Exports\FakturExport;
+use App\Exports\FaktursExport;
 use App\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -221,8 +221,6 @@ class FakturController extends Controller
 
     public function export_excel()
     {
-        return Excel::download(new FakturExport, 'fakturs.xlsx');
-
-        //redirect()->route('accounting.fakturs.index')->with($this->alertImport());
+        return Excel::download(new FaktursExport(), 'fakturs.xlsx');
     }
 }
