@@ -12,7 +12,7 @@
         @if (session('message'))
               <x-alert :type="session('type')" :message="session('message')"/>
             @endif
-        <a href="{{ route('accounting.fakturs.export_excel') }}" class="btn btn-primary"><i class="fa fa-download"></i> Export to Excel</a>
+        <a href="{{ route('accounting.fakturs.receive_export_excel') }}" class="btn btn-primary"><i class="fa fa-download"></i> Export to Excel</a>
       </div>
       <div class="box-body">
         <div class="table-responsive">

@@ -6,6 +6,8 @@ use App\Faktur;
 use App\Http\Controllers\Controller;
 use App\Imports\FakturImport;
 use App\Exports\FaktursExport;
+use App\Exports\FaktursreceiveExport;
+use App\Exports\FaktursnotreceiveExport;
 use App\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -232,5 +234,15 @@ class FakturController extends Controller
     public function export_excel()
     {
         return Excel::download(new FaktursExport(), 'fakturs.xlsx');
+    }
+
+    public function faktur_receive_export_excel()
+    {
+        return Excel::download(new FaktursreceiveExport(), 'fakturs_receive.xlsx');
+    }
+
+    public function faktur_notreceive_export_excel()
+    {
+        return Excel::download(new FaktursnotreceiveExport(), 'fakturs_not_receive.xlsx');
     }
 }
