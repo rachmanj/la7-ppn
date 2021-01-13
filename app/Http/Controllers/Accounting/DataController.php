@@ -42,6 +42,70 @@ class DataController extends Controller
             ->toJson();
     }
 
+    public function receive_already()
+    {
+        $fakturs = Faktur::whereNotNull('receive_date')->orderBy('creation_date', 'desc')->get();
+
+        return datatables()->of($fakturs)
+            ->editColumn('faktur_date', function (Faktur $model) {
+                if ($model->faktur_date) {
+                    return date('d-M-Y', strtotime($model->faktur_date));
+                }
+                return null;
+            })
+            ->editColumn('creation_date', function (Faktur $model) {
+                return date('d-M-Y', strtotime($model->creation_date));
+            })
+            ->editColumn('amount', function (Faktur $model) {
+                return number_format($model->amount, 2);
+            })
+            ->editColumn('posting_date', function (Faktur $model) {
+                return date('d-M-Y', strtotime($model->posting_date));
+            })
+            ->editColumn('receive_date', function (Faktur $model) {
+                if ($model->receive_date) {
+                    return date('d-M-Y', strtotime($model->receive_date));
+                }
+                return null;
+            })
+            ->addIndexColumn()
+            ->addColumn('action', 'accounting.fakturs.all.action')
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function receive_not()
+    {
+        $fakturs = Faktur::whereNull('receive_date')->orderBy('creation_date', 'desc')->get();
+
+        return datatables()->of($fakturs)
+            ->editColumn('faktur_date', function (Faktur $model) {
+                if ($model->faktur_date) {
+                    return date('d-M-Y', strtotime($model->faktur_date));
+                }
+                return null;
+            })
+            ->editColumn('creation_date', function (Faktur $model) {
+                return date('d-M-Y', strtotime($model->creation_date));
+            })
+            ->editColumn('amount', function (Faktur $model) {
+                return number_format($model->amount, 2);
+            })
+            ->editColumn('posting_date', function (Faktur $model) {
+                return date('d-M-Y', strtotime($model->posting_date));
+            })
+            ->editColumn('receive_date', function (Faktur $model) {
+                if ($model->receive_date) {
+                    return date('d-M-Y', strtotime($model->receive_date));
+                }
+                return null;
+            })
+            ->addIndexColumn()
+            ->addColumn('action', 'accounting.fakturs.all.action')
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
     public function receive()
     {
         $fakturs = Faktur::orderBy('faktur_date', 'asc')

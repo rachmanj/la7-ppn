@@ -197,6 +197,16 @@ class FakturController extends Controller
         return view('accounting.fakturs.belumsap.index');
     }
 
+    public function receive_already_index()
+    {
+        return view('accounting.fakturs.all.received');
+    }
+
+    public function receive_not_index()
+    {
+        return view('accounting.fakturs.all.received_not');
+    }
+
     public function import_excel(Request $request)
     {
         // validasi

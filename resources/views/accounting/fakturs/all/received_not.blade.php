@@ -1,7 +1,7 @@
 @extends('templates.default')
 
 @section('breadcrumb')
-<h1>Fakturs   <small><b>All</b> | <a href="{{ route('accounting.fakturs.receive_already_index') }}">Received</a> | <a href="{{ route('accounting.fakturs.receive_not_index') }}">Not Received</a> </small></h1>
+<h1>Fakturs   <small>  <a href="{{ route('accounting.fakturs.index') }}">All</a> | <a href="{{ route('accounting.fakturs.receive_already_index') }}">Received</a> | <b>Not Received</b></small></h1>
 @endsection
 
 @section('content')
@@ -12,11 +12,6 @@
         @if (session('message'))
               <x-alert :type="session('type')" :message="session('message')"/>
             @endif
-        @role(['superadmin', 'admin'])
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel">
-              <i class="fa fa-upload"></i> Upload Excel
-          </button>
-        @endrole
         <a href="{{ route('accounting.fakturs.export_excel') }}" class="btn btn-primary"><i class="fa fa-download"></i> Export to Excel</a>
       </div>
       <div class="box-body">
@@ -41,36 +36,7 @@
       </div>
     </div> <!-- end box -->
   </div>
-</div>
-
-  <!-- Import Excel -->
-
-  <div class="modal fade" id="importExcel">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"><i class="fa fa-star"></i> Upload File</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form method="post" action="{{ route('accounting.fakturs.import_excel') }}" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                    <label>Pilih file excel</label>
-                    <div class="form-group">
-                        <input type="file" name="file" required="required">
-                    </div>
-          
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Import</button>
-                    </div>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
+</div> 
 @endsection
 
 @push('styles')
@@ -89,7 +55,7 @@
     $('#datatable-faktur').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('accounting.fakturs.all.data') }}',
+            ajax: '{{ route('accounting.fakturs.receive_not.data') }}',
             columns: [
                 {data: 'DT_RowIndex', orderable: false, searchable: false},
                 {data: 'document_no'},

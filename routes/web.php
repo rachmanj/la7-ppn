@@ -30,11 +30,15 @@ Route::name('accounting.')
         // data ajax
         Route::get('faktur/all/data', 'DataController@fakturall')->name('fakturs.all.data');
         Route::get('faktur/receive/data', 'DataController@receive')->name('fakturs.receive.data');
+        Route::get('faktur/receive_already/data', 'DataController@receive_already')->name('fakturs.receive_already.data');
+        Route::get('faktur/receive_not/data', 'DataController@receive_not')->name('fakturs.receive_not.data');
         Route::get('faktur/efaktur/data', 'DataController@efaktur')->name('fakturs.efaktur.data');
         Route::get('faktur/duplicates/data', 'DataController@duplicates')->name('fakturs.duplicates.data');
         Route::get('faktur/belumsap/data', 'DataController@belumsap')->name('fakturs.belumsap.data');
 
         Route::get('fakturs/receive', 'FakturController@receive_index')->name('fakturs.receive_index');
+        Route::get('fakturs/receive_already', 'FakturController@receive_already_index')->name('fakturs.receive_already_index');
+        Route::get('fakturs/receive_not', 'FakturController@receive_not_index')->name('fakturs.receive_not_index');
         Route::get('fakturs/efaktur', 'FakturController@efaktur_index')->name('fakturs.efaktur_index');
         Route::get('fakturs/efaktur/{id}/edit', 'FakturController@efaktur_edit')->name('fakturs.efaktur_edit');
         Route::put('fakturs/efaktur/{id}', 'FakturController@efaktur_update')->name('fakturs.efaktur_update');

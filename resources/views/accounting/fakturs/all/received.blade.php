@@ -1,7 +1,7 @@
 @extends('templates.default')
 
 @section('breadcrumb')
-<h1>Fakturs   <small><b>All</b> | <a href="{{ route('accounting.fakturs.receive_already_index') }}">Received</a> | <a href="{{ route('accounting.fakturs.receive_not_index') }}">Not Received</a> </small></h1>
+<h1>Fakturs   <small> <a href="{{ route('accounting.fakturs.index') }}">All</a> | <b>Received</b> | <a href="{{ route('accounting.fakturs.receive_not_index') }}">Not Received</a> </small></h1>
 @endsection
 
 @section('content')
@@ -12,11 +12,6 @@
         @if (session('message'))
               <x-alert :type="session('type')" :message="session('message')"/>
             @endif
-        @role(['superadmin', 'admin'])
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel">
-              <i class="fa fa-upload"></i> Upload Excel
-          </button>
-        @endrole
         <a href="{{ route('accounting.fakturs.export_excel') }}" class="btn btn-primary"><i class="fa fa-download"></i> Export to Excel</a>
       </div>
       <div class="box-body">
@@ -89,7 +84,7 @@
     $('#datatable-faktur').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('accounting.fakturs.all.data') }}',
+            ajax: '{{ route('accounting.fakturs.receive_already.data') }}',
             columns: [
                 {data: 'DT_RowIndex', orderable: false, searchable: false},
                 {data: 'document_no'},
