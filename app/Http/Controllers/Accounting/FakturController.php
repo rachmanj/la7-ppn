@@ -184,7 +184,7 @@ class FakturController extends Controller
             ]);
 
             $faktur->update([
-                'receive_date'      => $request->efaktur_date,
+                'efaktur_date'      => $request->efaktur_date,
                 'efaktur_updatedby' => auth()->user()->name
             ]);
 
