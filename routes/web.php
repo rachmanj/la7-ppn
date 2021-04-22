@@ -25,6 +25,11 @@ Route::name('accounting.')
     ->middleware(['auth'])
     ->group(function () {
 
+        //Dashboard
+        Route::get('/dashboard', 'AccountingdashboardController@index')->name('dashboard.index');
+        Route::get('/dashboard/test', 'AccountingdashboardController@test')->name('dashboard.test');
+        Route::get('/dashboard/test/data', 'AccountingdataController@avgDaysMonthly')->name('dashboard.test.data');
+
         Route::get('/fakturs/export_excel', 'FakturController@export_excel')->name('fakturs.export_excel');
         Route::get('/fakturs/receive_export_excel', 'FakturController@faktur_receive_export_excel')->name('fakturs.receive_export_excel');
         Route::get('/fakturs/notreceive_export_excel', 'FakturController@faktur_notreceive_export_excel')->name('fakturs.notreceive_export_excel');
@@ -48,8 +53,10 @@ Route::name('accounting.')
         Route::get('fakturs/belumsap', 'FakturController@belumsap_index')->name('fakturs.belumsap_index');
         Route::resource('fakturs', 'FakturController');
 
-
         Route::post('/fakturs/import_excel', 'FakturController@import_excel')->name('fakturs.import_excel');
+
+        // Invoice
+
     });
 
 Route::name('general.')
@@ -68,16 +75,3 @@ Route::name('general.')
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware(['auth']);
 
-// Route::middleware(['auth'])->group(function () {
-
-//     //dashboard
-//     Route::get('/home', 'HomeController@index')->name('home');
-
-//     // data ajax
-//     Route::get('fakturs/data', 'DataController@fakturs')->name('fakturs.data');
-//     Route::get('fakturs/outs/data', 'DataController@fakturs_outs')->name('fakturs_outs.data');
-
-//     Route::get('/fakturs/outs', 'FakturController@fakturs_outs')->name('fakturs_outs.index');
-//     Route::resource('fakturs', 'FakturController');
-//     Route::post('/fakturs/import_excel', 'FakturController@import_excel')->name('fakturs.import_excel');
-// });
