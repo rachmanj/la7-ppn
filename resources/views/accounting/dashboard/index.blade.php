@@ -22,7 +22,7 @@
       <div class="info-box-content">
         <span class="info-box-text">This Month</span>
         <span class="info-box-number">{{ number_format($thismonth_avg, 2) }}<small> days</small></span>
-        <p>Invoice Process Days</p>
+        <p>Invoices-Process Days</p>
       </div><!-- /.info-box-content -->
     </div><!-- /.info-box -->
   </div><!-- /.col -->
@@ -35,7 +35,7 @@
       <div class="info-box-content">
         <span class="info-box-text">This Month</span>
         <span class="info-box-number">{{ $thisMonth_count }}<small> invoices</small></span>
-        <p>Invoice Received at BPN</p>
+        <p>Invoices Received at BPN</p>
       </div><!-- /.info-box-content -->
     </div><!-- /.info-box -->
   </div><!-- /.col -->
@@ -43,37 +43,34 @@
     <div class="info-box">
       <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
       <div class="info-box-content">
-        <span class="info-box-text">In Process</span>
-        <span class="info-box-number">xxx invoices</span>
+        <span class="info-box-text">This Month</span>
+        <span class="info-box-number">{{ $processedThisMonth_count }} <small>invoices</small></span>
+        <p>Invoices Processed</p>
       </div><!-- /.info-box-content -->
     </div><!-- /.info-box -->
   </div><!-- /.col -->
 </div><!-- /.row -->
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-3">
     <div class="box box-primary">
       <div class="box-header">
-        <h3>This Year ({{ date('Y') }})</h3>
+        <h4>This Year ({{ date('Y') }})</h4>
       </div>
       <div class="box-body">
         <div class="table-responsive">
           <table id="datatable-invoice" class="table table-bordered">
             <thead class="thead-primary">
                 <tr>
-                    <th></th>
                     <th class="text-center">Month</th>
                     <th class="text-right">Avg (days)</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
               @foreach ($monthly_avg as $item)
                   <tr>
-                    <td></td>
                     <td class="text-left">{{ date('F', strtotime('2021-0' . $item['month'] . '-01')) }}</td>
                     <td class="text-right">{{ number_format($item['days'], 2) }}</td>
-                    <td></td>
                   </tr>
               @endforeach
             </tbody>

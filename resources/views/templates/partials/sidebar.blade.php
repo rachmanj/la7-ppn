@@ -4,7 +4,7 @@
   <section class="sidebar">
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">ACCOUNTING</li>
-      <li class="treeview">
+      <li class="treeview {{ request()->is('accounting/dashboard') || request()->is('accounting/dashboard/*') ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           <span class="pull-right-container">
@@ -12,7 +12,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ route('accounting.dashboard.index') }}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+          <li class="{{ request()->is('accounting/dashboard') || request()->is('accounting/dashboard/*') ? 'active' : '' }}" ><a href="{{ route('accounting.dashboard.index') }}"><i class="fa fa-circle-o"></i> Invoices</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
         </ul>
       </li>
