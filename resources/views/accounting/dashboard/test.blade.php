@@ -10,17 +10,16 @@
     {{-- <h1>DAYS : {{ number_format($days, 0) }}</h1> --}}
     <table>
       <tr>
-        <th>Year</th>
         <th>Month</th>
-        <th>Avg</th>
+        <th>Creator</th>
+        <th>Count</th>
       </tr>
-      @foreach ($list as $item)
-        <tr>
-          <td>{{ $item['year'] }}</td>
-          {{-- <td>{{ date_format(strtotime('2021-0' . $item['month'] . '-01'), 'm') }}</td> --}}
-          <td>{{ date('F Y', strtotime('2021-0' . $item['month'] . '-01')) }}</td>
-          <td>{{ number_format($item['days'], 2) }}</td>
-        </tr>
+      @foreach ($byCreatorCount as $item)
+      <tr>
+        <td>{{ date('F', strtotime('2021-0' . $item['month'] . '-01')) }}</td>
+        <td>{{ $item['creator'] }}</td>
+        <td>{{ $item['count'] }}</td>
+      </tr>
       @endforeach
     </table>
     

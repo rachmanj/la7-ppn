@@ -23,6 +23,7 @@ class AccountingdashboardController extends Controller
         $monthly_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/avgdays-m';
         $thisMonthCount_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/receivetmcount';
         $byCreators_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/countbycreator';
+        $processedThisMonth_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/thismprocessed';
 
         $thismonth_promise = $client->getAsync($thismonth_url)->then(
             function ($response) {
@@ -56,22 +57,33 @@ class AccountingdashboardController extends Controller
             }
         );
 
+        $processedThisMonth_promise = $client->getAsync($processedThisMonth_url)->then(
+            function ($response) {
+                return $response->getBody();
+            }, function ($exception) {
+                return $exception->getMessage();
+            }
+        );
+
         $thismonth_response = $thismonth_promise->wait();
         $thisYearAvg_response = $thisYearAvg_promise->wait();
         $monthly_response = $monthly_promise->wait();
         $thisMonthCount_response = $thisMountCount_promise->wait();
         $response = $monthly_promise->wait();
+        $processedThisMonth_response = $processedThisMonth_promise->wait();
         
         $thismonth_avg =  json_decode($thismonth_response, true)['data']['days'];
         $thisYear_avg =  json_decode($thisYearAvg_response, true)['data']['days'];
         $monthly_avg =  json_decode($monthly_response, true)['data'];
         $thisMonth_count =  json_decode($thisMonthCount_response, true)['data'];
+        $processedThisMonth_count =  json_decode($processedThisMonth_response, true)['data'];
 
         return view('accounting.dashboard.index', compact(
             'thismonth_avg',
             'thisYear_avg',
             'monthly_avg',
-            'thisMonth_count'
+            'thisMonth_count',
+            'processedThisMonth_count'
         ));
     }
 
@@ -86,15 +98,7 @@ class AccountingdashboardController extends Controller
 
         $avg_days = Http::get('http://localhost:8000/api/invoices/avg_days')->json()['data'];
         $avgMonthly = Http::get('http://localhost:8000/api/invoices/avgdays-m')->json()['data'];
-        $projects = Http::get('http://192.168.33.37/arka-rest-server/api/project?arka-key=arka123')['data'];
-        // return $avg_days;
-        // return $avgMonthly;
-        // return $avg_days['data'];
-
-        // $list = Faktur::get();
-        //  return $list;
-        // return $projects;
-
+    
         return view('accounting.dashboard.test', [
             // 'avgMonthly' => $avgMonthly,
             // 'projects'  => $projects,
@@ -106,21 +110,10 @@ class AccountingdashboardController extends Controller
     {
         $client = new Client();
 
-        // $url = 'http://localhost:8000/api/invoices/avg_days';
-        $monthly_url = 'http://192.168.33.13/irr-api/public/api/invoices/avgdays-m';
-        $thismonth_url = 'http://192.168.33.13/irr-api/public/api/invoices/avg_days';
-        $byCreators_url = 'http://192.168.33.13/irr-api/public/api/invoices/countbycreator';
+        $byCreators_url = 'http://localhost:8000/api/invoices/countbycreator';
+        $thisYearMonths_url = 'http://localhost:8000/api/invoices/thisyearmonths';
         
-
-        // $response = $client->request('GET', $url, [
-        //     'verify' => false
-        // ]);
-
-        // $responseBody = $response->getBody();
-
-        // $response = Http::async()->get($url);
-
-        $monthly_promise = $client->getAsync($monthly_url)->then(
+        $byCreator_promise = $client->getAsync($byCreators_url)->then(
             function ($response) {
                 return $response->getBody();
             }, function ($exception) {
@@ -128,17 +121,26 @@ class AccountingdashboardController extends Controller
             }
         );
 
-        $monthly_response = $monthly_promise->wait();
-        $response = $monthly_promise->wait();
-        $response = $monthly_promise->wait();
-        // return $response;
-        $list  =  json_decode($monthly_response, true)['data'];
-        // $days = $filter;
+        $thisYearMonths_promise = $client->getAsync($thisYearMonths_url)->then(
+            function ($response) {
+                return $response->getBody();
+            }, function ($exception) {
+                return $exception->getMessage();
+            }
+        );
 
-        return view('accounting.dashboard.test', [
-            'list' => $list
-        ]);
-        // return $response;
+        $byCreator_response = $byCreator_promise->wait();
+        $thisYearMonths_response = $thisYearMonths_promise->wait();
+        
+        $byCreatorCount  =  json_decode($byCreator_response, true)['data'];
+        $thisYearMonths  =  json_decode($thisYearMonths_response, true)['data'];
+
+        return view('accounting.dashboard.test', compact(
+            'byCreatorCount',
+            'thisYearMonths'
+        ));
+
+        // return $byCreatorCount;
     }
 
 }
