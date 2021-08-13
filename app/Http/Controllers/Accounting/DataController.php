@@ -110,7 +110,7 @@ class DataController extends Controller
     {
         $fakturs = Faktur::orderBy('faktur_date', 'asc')
             ->whereNull('receive_date')
-            ->where('doc_type', '!=', 'AP DP')
+            // ->where('doc_type', '!=', 'AP DP')
             ->get();
 
         return datatables()->of($fakturs)

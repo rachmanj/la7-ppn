@@ -18,6 +18,8 @@ class AccountingdashboardController extends Controller
     {
         $client = new Client();
 
+
+        //URL
         $thismonth_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/avg_days';
         $thisyearavg_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/avgdays-y';
         $monthly_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/avgdays-m';
@@ -25,6 +27,8 @@ class AccountingdashboardController extends Controller
         $byCreators_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/countbycreator';
         $processedThisMonth_url = 'http://192.168.33.18:8080/irr-api/public/api/invoices/thismprocessed';
 
+
+        // PROMISE
         $thismonth_promise = $client->getAsync($thismonth_url)->then(
             function ($response) {
                 return $response->getBody();
@@ -65,25 +69,40 @@ class AccountingdashboardController extends Controller
             }
         );
 
+        $countByCreatorThisYear_promise = $client->getAsync($byCreators_url)->then(
+            function ($response) {
+                return $response->getBody();
+            }, function ($exception) {
+                return $exception->getMessage();
+            }
+        );
+
+        //RESPONSE
+
         $thismonth_response = $thismonth_promise->wait();
         $thisYearAvg_response = $thisYearAvg_promise->wait();
         $monthly_response = $monthly_promise->wait();
         $thisMonthCount_response = $thisMountCount_promise->wait();
         $response = $monthly_promise->wait();
         $processedThisMonth_response = $processedThisMonth_promise->wait();
-        
+        $countByCreatorThisYear_response = $countByCreatorThisYear_promise->wait();
+
+
+        //DECODE
         $thismonth_avg =  json_decode($thismonth_response, true)['data']['days'];
         $thisYear_avg =  json_decode($thisYearAvg_response, true)['data']['days'];
         $monthly_avg =  json_decode($monthly_response, true)['data'];
         $thisMonth_count =  json_decode($thisMonthCount_response, true)['data'];
         $processedThisMonth_count =  json_decode($processedThisMonth_response, true)['data'];
+        $countByCreatorThisYear_get = json_decode($countByCreatorThisYear_response, true)['data'];
 
         return view('accounting.dashboard.index', compact(
             'thismonth_avg',
             'thisYear_avg',
             'monthly_avg',
             'thisMonth_count',
-            'processedThisMonth_count'
+            'processedThisMonth_count',
+            'countByCreatorThisYear_get'
         ));
     }
 
