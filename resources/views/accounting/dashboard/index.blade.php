@@ -82,21 +82,27 @@
   <div class="col-lg-6">
     <div class="box box-primary">
       <div class="box-header">
-        @if (session('message'))
-          <x-alert :type="session('type')" :message="session('message')"/>
-        @endif
+        <h4>This Year ({{ date('Y') }})</h4>
       </div>
       <div class="box-body">
         <div class="table-responsive">
           <table id="datatable-invoice" class="table table-bordered">
             <thead class="thead-primary">
                 <tr>
-                    <th>#</th>
-                    <th>Year</th>
                     <th>Month</th>
-                    <th>Avg (days)</th>
+                    <th>Creator</th>
+                    <th class="text-center">Count</th>
                 </tr>
             </thead>
+            <tbody>
+              {{-- @foreach ($countByCreatorThisYear_get as $item)
+                  <tr>
+                    <td>{{ $item['month'] }}</td>
+                    <td>{{ $item['creator'] }}</td>
+                    <td class="text-right">{{ $item['count'] }}</td>
+                  </tr>
+              @endforeach --}}
+            </tbody>
           </table>
         </div>
       </div>
