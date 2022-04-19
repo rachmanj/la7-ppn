@@ -18,7 +18,7 @@
       </li>
       <li class="treeview {{ request()->is('accounting/fakturs') || request()->is('accounting/fakturs/*') ? 'active' : '' }}">
         <a href="#">
-          <i class="fa fa-files-o"></i>
+          <i class="fa fa-subway"></i>
           <span>Faktur PPN</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -30,19 +30,26 @@
           <li class="{{ request()->is('accounting/fakturs/efaktur') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.efaktur_index') }}"><i class="fa fa-circle-o"></i> Update eFaktur Date</a></li>
           <li class="{{ request()->is('accounting/fakturs/belumsap') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.belumsap_index') }}"><i class="fa fa-circle-o"></i> Faktur Belum SAP</a></li>
           <li class="{{ request()->is('accounting/fakturs/duplicates') ? 'active' : '' }}"><a href="{{ route('accounting.fakturs.duplicates_index') }}"><i class="fa fa-circle-o"></i> Duplicate Entries</a></li>
+
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-files-o"></i>
+          <i class="fa fa-list-alt"></i>
           <span>Invoices</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i> In Process Invoices</a></li>
+          <li><a href="#"><i class="fa fa-money"></i> In Process Invoices</a></li>
         </ul>
+      </li>
+      <li class="treeview {{ request()->is('accounting/fakturs') || request()->is('accounting/fakturs/*') ? 'active' : '' }}">
+        <a href="{{ route('general.suppliers.index') }}">
+          <i class="fa fa-bar-chart-o"></i>
+          <span>Reports</span>
+        </a>
       </li>
       <li class="header">GENERAL</li>
       <li class="{{ request()->is('general/suppliers') || request()->is('general/suppliers/*') ? 'active' : '' }}">

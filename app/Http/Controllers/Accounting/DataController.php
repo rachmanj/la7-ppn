@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Accounting;
 use App\Faktur;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DataController extends Controller
 {
     public function fakturall()
     {
-        $fakturs = Faktur::orderBy('creation_date', 'desc')->get();
+        $fakturs = Faktur::where('creation_date', '>', Carbon::now()->subMonths(18))
+                    ->orderBy('creation_date', 'desc')
+                    ->get();
 
         return datatables()->of($fakturs)
             ->editColumn('faktur_date', function (Faktur $model) {
