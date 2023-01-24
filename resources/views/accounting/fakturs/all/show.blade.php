@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <th class="text-right">Vendor Name</th>
-                        <td>{{ $supplier->name }}</td>
+                        <td>{{ $supplier ? $supplier->name : '' }}</td>
                     </tr>
                     <tr>
                         <th class="text-right">Faktur Date</th>

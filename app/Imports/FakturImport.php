@@ -19,10 +19,10 @@ class FakturImport implements ToModel, WithHeadingRow
             'document_no'       => $row['document_no'],
             'vendor_code'       => $row['vendor_code'],
             'faktur_no'         => $row['faktur_no'],
-            'faktur_date'       => $row['faktur_date'],
+            'faktur_date'       => $this->convert_date($row['faktur_date']),
             'amount'            => $row['amount'],
-            'creation_date'     => $row['creation_date'],
-            'posting_date'      => $row['posting_date'],
+            'creation_date'     => $this->convert_date($row['creation_date']),
+            'posting_date'      => $this->convert_date($row['posting_date']),
             'project_code'      => $row['project_code'],
             'doc_type'          => $row['doc_type'],
             'remark'            => $row['remark'],
@@ -31,5 +31,18 @@ class FakturImport implements ToModel, WithHeadingRow
             'invoice_remarks'   => $row['invoice_remarks'],
             'created_by'        => 'excel import',
         ]);
+    }
+
+    public function convert_date($date)
+    {
+        if ($date) {
+            $year = substr($date, 6, 4);
+            $month = substr($date, 3, 2);
+            $day = substr($date, 0, 2);
+            $new_date = $year . '-' . $month . '-' . $day;
+            return $new_date;
+        } else {
+            return null;
+        }
     }
 }
